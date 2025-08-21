@@ -1,0 +1,27 @@
+name: Package Python Application
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  package-application:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install Python
+      uses: actions/setup-python@v5
+
+    - name: Install Python Package Manager UV
+      uses: astral-sh/setup-uv@v6
+
+    - name: Install Project Dependencies & Pyinstaller
+      run: |
+        uv sync && uv pip install -r requirements[dev].txt
+
+    - name: Package Program
+      run: |
+        uv run pyinstaller lcu.spec
