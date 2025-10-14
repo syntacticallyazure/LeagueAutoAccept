@@ -1,6 +1,6 @@
 [project]
 name = "lcu"
-version = "0.0.1"
+version = "0.0.2"
 description = "Auto Match Acceptor for Riot Games' League of Legends"
 readme = "README.md"
 requires-python = ">=3.12"
