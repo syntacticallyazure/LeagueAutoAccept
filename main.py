@@ -43,10 +43,6 @@ async def disconnect(_):
 async def client_state_change(connection, event):
     client.set_state(event)
 
-# @connector.ws.register('/lol-champ-select/v1/session', event_types=('UPDATE',))
-# async def client_pick_phase(connection, event):
-#     log.info(event.data["actions"][0][0]["type"])
-
 @connector.ws.register('/lol-matchmaking/v1/ready-check', event_types=('UPDATE',))
 async def state_match_found(connection, event):
     if event.data['state'] == 'InProgress' and event.data['playerResponse'] == 'None':
