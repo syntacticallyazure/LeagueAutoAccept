@@ -9,7 +9,6 @@ default:
 
 build:
     uv sync
-    uv pip install -r requirements[dev].txt
     uv run pyinstaller lcu.spec
     # cp ./dist/lcu.exe ${INSTALL_DIR}
 
