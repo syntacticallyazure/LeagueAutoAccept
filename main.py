@@ -34,7 +34,10 @@ async def connect(connection):
 
 @connector.close
 async def disconnect(_):
-    log.info('The client has been closed!')
+    log.info('The League Client has closed. Terminating...')
+    loop = asyncio.get_event_loop()
+    loop.create_task(connector.stop())
+    sys.exit(0)
 
 @connector.ws.register('/lol-gameflow/v1/gameflow-phase', event_types=('UPDATE',))
 async def client_state_change(connection, event):
