@@ -2,20 +2,18 @@ set dotenv-load := true
 
 alias b := build
 alias r := run
-alias c := clean
+alias d := deploy
 
 default:
     just -f Justfile --list
 
 build:
-    uv sync
-    uv pip install -r requirements[dev].txt
+    uv sync --group dev
     uv run pyinstaller lcu.spec
-    # cp ./dist/lcu.exe ${INSTALL_DIR}
 
 run:
     uv sync
-    uv run python main.py
+    uv run python ./src/main.py
 
-clean:
-    rm -rfv .venv build dist
+deploy:
+    cp -v ./dist/lcu.exe ${INSTALL_DIR}

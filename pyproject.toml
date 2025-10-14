@@ -1,10 +1,17 @@
 [project]
 name = "lcu"
-version = "0.0.1"
+version = "0.0.2"
 description = "Auto Match Acceptor for Riot Games' League of Legends"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "lcu-driver>=3.0.2",
     "loguru>=0.7.3",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.16.0",
+    "pytest>=8.4.2",
+    "tox>=4.31.0",
 ]

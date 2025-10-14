@@ -1,2 +1,5 @@
 loguru
 lcu_driver
+pyinstaller
+pytest
+tox

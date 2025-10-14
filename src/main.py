@@ -8,6 +8,10 @@ import asyncio
 from lcu_driver import Connector
 from loguru import logger as log
 
+if len(sys.argv) > 1 and sys.argv[1] == "--version":
+    print("0.0.2")
+    sys.exit(0)
+
 VALID_GAMESTATES = [
     'Lobby', 'Matchmaking', 'ReadyCheck', 'ChampSelect',
     'GameStart', 'InProgress', 'PreEndOfGame', None
@@ -43,10 +47,6 @@ async def disconnect(_):
 async def client_state_change(connection, event):
     client.set_state(event)
 
-# @connector.ws.register('/lol-champ-select/v1/session', event_types=('UPDATE',))
-# async def client_pick_phase(connection, event):
-#     log.info(event.data["actions"][0][0]["type"])
-
 @connector.ws.register('/lol-matchmaking/v1/ready-check', event_types=('UPDATE',))
 async def state_match_found(connection, event):
     if event.data['state'] == 'InProgress' and event.data['playerResponse'] == 'None':
@@ -54,6 +54,9 @@ async def state_match_found(connection, event):
         await connection.request('post', '/lol-matchmaking/v1/ready-check/accept', data={})
         
         log.info("Match auto-accepted.")
+
+def main():
+    print("Hello!")
 
 def signal_handler(sig, frame):
     log.info("Ctrl+C detected, attempting graceful shutdown...")
