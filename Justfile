@@ -13,7 +13,7 @@ build:
 
 run:
     uv sync
-    uv run python main.py
+    uv run python ./src/main.py
 
 deploy:
     cp -v ./dist/lcu.exe ${INSTALL_DIR}
