@@ -2,7 +2,6 @@ set dotenv-load := true
 
 alias b := build
 alias r := run
-#alias c := clean
 alias d := deploy
 
 default:
