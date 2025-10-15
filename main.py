@@ -8,6 +8,10 @@ import asyncio
 from lcu_driver import Connector
 from loguru import logger as log
 
+if len(sys.argv) > 1 and sys.argv[1] == "--version":
+    print("0.0.2")
+    sys.exit(0)
+
 VALID_GAMESTATES = [
     'Lobby', 'Matchmaking', 'ReadyCheck', 'ChampSelect',
     'GameStart', 'InProgress', 'PreEndOfGame', None
