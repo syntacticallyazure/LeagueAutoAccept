@@ -51,6 +51,9 @@ async def state_match_found(connection, event):
         
         log.info("Match auto-accepted.")
 
+def main():
+    print("Hello!")
+
 def signal_handler(sig, frame):
     log.info("Ctrl+C detected, attempting graceful shutdown...")
     loop = asyncio.get_event_loop()

@@ -17,4 +17,4 @@ run:
     uv run python main.py
 
 clean:
-    rm -rfv .venv build dist
+    git clean -fdx;
