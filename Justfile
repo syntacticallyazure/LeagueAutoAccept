@@ -2,7 +2,7 @@ set dotenv-load := true
 
 alias b := build
 alias r := run
-alias c := clean
+#alias c := clean
 alias d := deploy
 
 default:
@@ -15,9 +15,6 @@ build:
 run:
     uv sync
     uv run python main.py
-
-clean:
-    git clean -fdx;
 
 deploy:
     cp -v ./dist/lcu.exe ${INSTALL_DIR}
