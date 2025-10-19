@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['./src/main.py'],
+    ['src\\main.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -36,7 +36,3 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
 )
-
-options = [
-    ('hash_seed=lcu', None, 'OPTION')
-]
