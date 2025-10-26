@@ -1,1 +1,1 @@
-Uses Python3.12
+Uses Python 3.12
