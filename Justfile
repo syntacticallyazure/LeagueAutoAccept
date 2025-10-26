@@ -8,7 +8,7 @@ default:
     just -f Justfile --list
 
 build:
-    uv sync
+    uv sync --group dev
     uv run pyinstaller lcu.spec
 
 run:
