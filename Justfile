@@ -4,4 +4,4 @@ build:
 
 run:
     uv sync
-    uv run python ./src/main.py
+    -uv run python ./src/main.py
